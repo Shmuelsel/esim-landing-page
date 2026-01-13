@@ -30,8 +30,8 @@ const Navbar = () => {
             rel="noopener noreferrer"
             className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-bold transition-all shadow-md shadow-blue-200 flex items-center gap-2"
           >
-            <span>בוואצאפ</span>
-            <span className="hidden sm:inline">24/7</span> {/* מוסתר במסכים ממש קטנים */}
+            <span>וואצאפ</span>
+            <span className="hidden sm:inline">24/6</span> {/* מוסתר במסכים ממש קטנים */}
           </a>
         </div>
 
