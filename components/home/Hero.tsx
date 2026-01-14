@@ -43,7 +43,7 @@ const Hero = () => {
             <div className="mt-8 flex items-center justify-center lg:justify-start gap-6 text-sm text-gray-500">
               <span className="flex items-center gap-1">⚡ התקנה מיידית</span>
               <span className="flex items-center gap-1">🔒 תשלום מאובטח</span>
-              <span className="flex items-center gap-1">📱 מכשירים תומכים esim</span>
+              <span className="flex items-center gap-1">📱 עבור מכשירים תומכים esim</span>
             </div>
           </div>
 

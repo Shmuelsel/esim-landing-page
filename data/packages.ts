@@ -33,7 +33,7 @@ export const packages: Package[] = [
     data: '12GB',
     days: 30,
     price: 80,
-    features: ['תקף ב-43 מדינות', 'LTE/4G/5G', 'Hotspot פעיל', 'טעינה חוזרת', 'הכי נמכרת'],
+    features: ['תקף ב-43 מדינות', 'LTE/4G/5G', 'Hotspot פעיל', 'טעינה חוזרת'],
     flag: '🇪🇺',
     isPopular: true
   },

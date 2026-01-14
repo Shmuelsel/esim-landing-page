@@ -25,6 +25,7 @@ const Footer = () => {
               <li><a href="#pricing" className="hover:text-blue-400 transition-colors">חבילות גלישה</a></li>
               {/* שים לב: כאן הוספתי ID שצריך להוסיף לקומפוננטת Steps */}
               <li><a href="#steps" className="hover:text-blue-400 transition-colors">איך זה עובד?</a></li>
+              <li><a href="#compatibility" className="hover:text-blue-400 transition-colors">בדיקת תאימות</a></li>
             </ul>
           </div>
 

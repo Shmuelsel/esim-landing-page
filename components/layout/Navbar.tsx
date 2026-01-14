@@ -19,6 +19,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
           <a href="#" className="hover:text-blue-600 transition-colors">דף הבית</a>
           <a href="#steps" className="hover:text-blue-600 transition-colors">איך זה עובד?</a>
+          <a href="#compatibility" className="hover:text-blue-600 transition-colors">בדיקת תאימות</a>
           <a href="#pricing" className="hover:text-blue-600 transition-colors">חבילות גלישה</a>
         </div>
 
@@ -30,7 +31,7 @@ const Navbar = () => {
             rel="noopener noreferrer"
             className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-bold transition-all shadow-md shadow-blue-200 flex items-center gap-2"
           >
-            <span>וואצאפ</span>
+            <span>פה בשבילכם בוואצאפ</span>
             <span className="hidden sm:inline">24/6</span> {/* מוסתר במסכים ממש קטנים */}
           </a>
         </div>

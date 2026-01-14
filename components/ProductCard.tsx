@@ -10,8 +10,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ pkg }) => {
   const whatsappLink = generateWhatsAppLink(pkg);
 
   return (
-    <div className={`relative flex flex-col p-6 bg-white rounded-2xl transition-all duration-300 ${pkg.isPopular ? 'border-2 border-blue-500 shadow-xl scale-105 z-10' : 'border border-gray-100 shadow-lg hover:shadow-xl'}`}>
-      
+<div className={`relative flex flex-col p-6 bg-white rounded-2xl transition-all duration-300 ${pkg.isPopular ? 'border-2 border-blue-500 shadow-md hover:shadow-2xl' : 'border border-gray-100 shadow-md hover:shadow-2xl'}`}>      
       {/* תווית מומלץ */}
       {pkg.isPopular && (
         <div className="absolute -top-4 right-1/2 transform translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
