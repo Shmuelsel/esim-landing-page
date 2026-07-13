@@ -30,7 +30,7 @@ export const siteConfig = {
 
   stores: {
     ios: 'https://apps.apple.com/il/app/clicksim/id000000000', // PLACEHOLDER
-    android: 'https://play.google.com/store/apps/details?id=com.clicksim.app', // PLACEHOLDER
+    android: 'https://play.google.com/store/apps/details?id=com.shmuel.clicksim',
   },
 
   /**
