@@ -1,52 +1,49 @@
-import React from 'react';
+const steps = [
+  {
+    icon: '📲',
+    title: 'הורידו את האפליקציה',
+    description: 'מתקינים את ClickSim מ-App Store או מ-Google Play, ונרשמים בכמה שניות.',
+  },
+  {
+    icon: '💳',
+    title: 'בחרו חבילה ושלמו',
+    description: 'בוחרים יעד ונפח גלישה, ומשלמים בתשלום מאובטח בתוך האפליקציה.',
+  },
+  {
+    icon: '🌐',
+    title: 'התחברו וגלשו',
+    description: 'ה-eSIM מותקן ישירות מהאפליקציה, והאינטרנט מופעל אוטומטית עם הנחיתה.',
+  },
+];
 
-const Steps = () => {
-  const steps = [
-    {
-      icon: "🔍",
-      title: "בחר חבילה",
-      desc: "מצא את היעד שלך ברשימה ובחר את נפח הגלישה המתאים לך."
-    },
-    {
-      icon: "📩",
-      title: "קבל QR Code",
-      desc: "מיד לאחר התשלום תקבל קוד QR ישירות למייל ולוואצאפ."
-    },
-    {
-      icon: "🌐",
-      title: "סרוק וגלוש",
-      desc: "סרוק את הקוד בהגדרות המכשיר, והאינטרנט יופעל אוטומטית בנחיתה."
-    }
-  ];
+const Steps = () => (
+  <section id="steps" className="bg-white py-20">
+    <div className="container mx-auto px-4">
+      <h2 className="mb-16 text-center text-3xl font-bold text-gray-900">
+        eSIM פעיל בשלושה שלבים
+      </h2>
 
-  return (
-    <section id="steps" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-16 text-gray-900">
-          אז איך יש לכם סים תוך שתי דקות?
-        </h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto relative">
-          {/* קו מחבר ברקע (מופיע רק בדסקטופ) */}
-          <div className="hidden md:block absolute top-12 right-0 left-0 h-0.5 bg-blue-100 -z-10 transform -translate-y-1/2"></div>
+      <ol className="relative mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-3">
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 top-12 -z-10 hidden h-0.5 -translate-y-1/2 bg-blue-100 md:block"
+        />
 
-          {steps.map((step, idx) => (
-            <div key={idx} className="flex flex-col items-center text-center bg-white p-4">
-              <div className="w-24 h-24 bg-blue-50 rounded-full flex items-center justify-center text-4xl mb-6 shadow-sm border border-blue-100 relative">
-                {step.icon}
-                {/* מספר השלב */}
-                <div className="absolute -top-2 -right-2 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
-                  {idx + 1}
-                </div>
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">{step.title}</h3>
-              <p className="text-gray-600 max-w-xs">{step.desc}</p>
+        {steps.map((step, index) => (
+          <li key={step.title} className="flex flex-col items-center bg-white p-4 text-center">
+            <div className="relative mb-6 flex h-24 w-24 items-center justify-center rounded-full border border-blue-100 bg-blue-50 text-4xl shadow-sm">
+              <span aria-hidden="true">{step.icon}</span>
+              <span className="absolute -top-2 -right-2 flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
+                {index + 1}
+              </span>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+            <h3 className="mb-3 text-xl font-bold text-gray-900">{step.title}</h3>
+            <p className="max-w-xs text-gray-600">{step.description}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+);
 
 export default Steps;

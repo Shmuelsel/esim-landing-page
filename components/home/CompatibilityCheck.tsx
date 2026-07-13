@@ -1,97 +1,77 @@
-"use client";
-
-import React, { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
 import { supportedPhones } from '@/data/phones';
 
-const CompatibilityCheck = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [isOpen, setIsOpen] = useState(false); // האם הרשימה פתוחה?
-  const [result, setResult] = useState<null | boolean>(null);
-  
-  // סינון המכשירים לפי מה שהמשתמש הקליד
-  const filteredPhones = supportedPhones.filter(phone => 
-    phone.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+const CompatibilityCheck = () => (
+  <section id="compatibility" className="border-t border-gray-100 bg-white py-20">
+    <div className="container mx-auto max-w-4xl px-4">
+      <h2 className="mb-10 text-center text-3xl font-bold text-gray-900">
+        האם המכשיר שלי תומך ב-eSIM?
+      </h2>
 
-  // פונקציה שמטפלת בהקלדה
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setSearchTerm(value);
-    setIsOpen(true); // לפתוח את הרשימה כשמקלידים
-    
-    // איפוס התוצאה בזמן הקלדה
-    if (value === '') {
-      setResult(null);
-    }
-  };
+      <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-2">
+        <div className="h-full rounded-2xl border border-blue-100 bg-blue-50 p-8">
+          <h3 className="mb-4 text-xl font-bold text-gray-800">⚡ הבדיקה המהירה</h3>
+          <p className="mb-6 text-gray-600">זו הדרך הוודאית ביותר לדעת אם המכשיר שלכם תומך:</p>
 
-  // פונקציה שמטפלת בבחירה מהרשימה
-  const handleSelectPhone = (phone: string) => {
-    setSearchTerm(phone); // עדכון השדה לשם המלא
-    setResult(true);      // הצגת הודעת הצלחה
-    setIsOpen(false);     // סגירת הרשימה
-  };
+          <ol className="space-y-4">
+            <li className="flex items-start gap-3">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
+                1
+              </span>
+              <span className="text-gray-700">
+                היכנסו לחייגן הטלפון וחייגו:{' '}
+                <b dir="ltr" className="text-lg text-gray-900">
+                  *#06#
+                </b>
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
+                2
+              </span>
+              <span className="text-gray-700">
+                אם מופיע על המסך קוד בשם <b className="text-gray-900">EID</b> — המכשיר תומך ב-eSIM ✅
+              </span>
+            </li>
+          </ol>
+        </div>
 
-  return (
-    <section id="compatibility" className="py-20 bg-white border-t border-gray-100">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <h2 className="text-3xl font-bold text-center mb-10 text-gray-900">
-          האם המכשיר שלי תומך ב-eSIM?
-        </h2>
+        <div className="flex h-full flex-col rounded-2xl border border-gray-100 bg-gray-50 p-8">
+          <h3 className="mb-4 text-xl font-bold text-gray-800">מכשירים נתמכים</h3>
+          <p className="mb-6 text-sm text-gray-500">
+            רוב המכשירים מהשנים האחרונות של המותגים המובילים נתמכים. שימו לב שהמכשיר צריך להיות פתוח
+            לכל הרשתות (Unlocked).
+          </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-          
-          {/* צד ימין: בדיקת "קסם" מהירה */}
-          <div className="bg-blue-50 p-8 rounded-2xl border border-blue-100 h-full">
-            <h3 className="text-xl font-bold mb-4 text-gray-800">⚡ הבדיקה הכי מהירה (מומלץ)</h3>
-            <p className="text-gray-600 mb-6">
-              זו הדרך הוודאית ביותר לדעת אם המכשיר שלך תומך:
-            </p>
-            
-            <ol className="space-y-4">
-              <li className="flex items-start gap-3">
-                <span className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold">1</span>
-                <span className="text-gray-700">כנס לחייגן הטלפון וחייג: <b dir="ltr" className="text-lg text-gray-900">*#06#</b></span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold">2</span>
-                <span className="text-gray-700">אם מופיע לך על המסך קוד בשם <b className="text-gray-900">EID</b> - המכשיר שלך תומך! ✅</span>
-              </li>
-            </ol>
-          </div>
-
-          {/* צד שמאל: חיפוש חכם עם רשימה נפתחת */}
-          {/* צד שמאל: מותגים + עזרה (החלק המרגיע) */}
-          <div className="bg-gray-50 p-8 rounded-3xl border border-gray-100 flex flex-col h-full">
-            <h3 className="text-xl font-bold mb-4 text-gray-800">תמיכה בכל המכשירים החדשים</h3>
-            <p className="text-gray-500 mb-6">אנחנו תומכים ברוב המכשירים מהשנים האחרונות של המותגים המובילים:</p>
-            
-            {/* גריד מותגים מהיר */}
-            <div className="grid grid-cols-2 gap-4 mb-8">
-              <div className="bg-white p-3 rounded-xl text-center font-bold text-gray-700 shadow-sm border border-gray-100">Apple 🍏</div>
-              <div className="bg-white p-3 rounded-xl text-center font-bold text-gray-700 shadow-sm border border-gray-100">Samsung 📱</div>
-              <div className="bg-white p-3 rounded-xl text-center font-bold text-gray-700 shadow-sm border border-gray-100">Google G</div>
-              <div className="bg-white p-3 rounded-xl text-center font-bold text-gray-700 shadow-sm border border-gray-100">Xiaomi / Other</div>
-            </div>
-
-            {/* כפתור עזרה - לוקח את כל הגובה שנשאר */}
-            <div className="mt-auto pt-6 border-t border-gray-200 text-center">
-              <p className="text-gray-600 mb-3 text-sm">עדיין לא בטוחים? אנחנו כאן.</p>
-              <a 
-                href="https://wa.me/972524329287?text=היי אני רוצה לבדוק אם המכשיר שלי תומך ב-eSIM" // שנה למספר שלך
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-xl transition-colors shadow-lg shadow-green-100"
+          <div className="space-y-2">
+            {supportedPhones.map(({ brand, models }) => (
+              <details
+                key={brand}
+                className="rounded-xl border border-gray-100 bg-white px-4 py-3 shadow-sm"
               >
-                <span>שאל/י אותנו בוואצאפ</span>
-              </a>
-            </div>
+                <summary className="cursor-pointer font-bold text-gray-700">{brand}</summary>
+                <ul className="mt-3 space-y-1.5 text-sm text-gray-600" dir="ltr">
+                  {models.map((model) => (
+                    <li key={model}>{model}</li>
+                  ))}
+                </ul>
+              </details>
+            ))}
           </div>
 
+          <div className="mt-auto border-t border-gray-200 pt-6 text-center">
+            <p className="mb-3 text-sm text-gray-600">עדיין לא בטוחים?</p>
+            <Link
+              href="/support"
+              className="block rounded-xl bg-blue-600 px-6 py-3 font-bold text-white transition-colors hover:bg-blue-700"
+            >
+              דברו עם שירות הלקוחות
+            </Link>
+          </div>
         </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default CompatibilityCheck;

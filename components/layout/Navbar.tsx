@@ -1,44 +1,47 @@
-import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { navLinks, siteConfig } from '@/config/site';
+import MobileNav from './MobileNav';
 
-const Navbar = () => {
-  return (
-    // z-50 מבטיח שהתפריט יהיה מעל הכל
-    // backdrop-blur יוצר אפקט זכוכית יוקרתי
-    <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-gray-100 z-50">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        
-        {/* לוגו */}
-        <div className="flex items-center gap-2">
-          <span className="text-2xl">🇮🇱</span>
-          <a href="#" className="text-xl font-bold text-gray-900 tracking-tight">
-            eSIM Israel
-          </a>
-        </div>
+const Navbar = () => (
+  <nav className="fixed top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-md">
+    <div className="container mx-auto flex h-16 items-center justify-between gap-4 px-4">
+      <Link
+        href="/"
+        className="flex items-center gap-2 text-xl font-bold tracking-tight text-gray-900"
+      >
+        <Image
+          src="/logo.png"
+          alt=""
+          width={32}
+          height={32}
+          priority
+          className="h-8 w-8"
+        />
+        {siteConfig.name}
+      </Link>
 
-        {/* תפריט למסכים גדולים (מוסתר במובייל) */}
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
-          <a href="#" className="hover:text-blue-600 transition-colors">דף הבית</a>
-          <a href="#steps" className="hover:text-blue-600 transition-colors">איך זה עובד?</a>
-          <a href="#compatibility" className="hover:text-blue-600 transition-colors">בדיקת תאימות</a>
-          <a href="#pricing" className="hover:text-blue-600 transition-colors">חבילות גלישה</a>
-        </div>
+      <ul className="hidden items-center gap-8 text-sm font-medium text-gray-600 md:flex">
+        {navLinks.map((link) => (
+          <li key={link.href}>
+            <Link href={link.href} className="transition-colors hover:text-blue-600">
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
 
-        {/* כפתור הנעה לפעולה */}
-        <div>
-          <a 
-            href="https://wa.me/972524329287"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-bold transition-all shadow-md shadow-blue-200 flex items-center gap-2"
-          >
-            <span>פה בשבילכם בוואצאפ</span>
-            <span className="hidden sm:inline">24/6</span> {/* מוסתר במסכים ממש קטנים */}
-          </a>
-        </div>
-
+      <div className="flex items-center gap-2">
+        <Link
+          href="/#download"
+          className="rounded-full bg-blue-600 px-5 py-2 text-sm font-bold text-white shadow-md shadow-blue-200 transition-colors hover:bg-blue-700"
+        >
+          הורדת האפליקציה
+        </Link>
+        <MobileNav />
       </div>
-    </nav>
-  );
-};
+    </div>
+  </nav>
+);
 
 export default Navbar;

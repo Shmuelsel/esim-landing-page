@@ -1,15 +1,17 @@
 import Hero from '@/components/home/Hero';
-import PricingGrid from '@/components/home/PricingGrid';
 import Steps from '@/components/home/Steps';
+import PricingGrid from '@/components/home/PricingGrid';
 import CompatibilityCheck from '@/components/home/CompatibilityCheck';
+import DownloadCta from '@/components/home/DownloadCta';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
+    <>
       <Hero />
       <Steps />
-      <CompatibilityCheck />
       <PricingGrid />
-    </main>
+      <CompatibilityCheck />
+      <DownloadCta />
+    </>
   );
 }
