@@ -14,8 +14,8 @@ export const siteConfig = {
   business: {
     legalName: 'ClickSim',
     type: 'עוסק פטור',
-    registrationNumber: '000000000', // PLACEHOLDER: מספר עוסק פטור
-    address: 'PLACEHOLDER: כתובת העסק',
+    registrationNumber: '207861535',
+    address: "המלך ג'ורג 12, ירושלים, ישראל",
   },
 
   /**
@@ -24,7 +24,7 @@ export const siteConfig = {
    */
   support: {
     email: 'support@clicksim.app', // TODO: confirm this mailbox is live before launch
-    hours: 'ימים א׳–ה׳, 09:00–18:00 (שעון ישראל)',
+    hours: 'ימים א׳–ה׳, 09:00–16:00 (שעון ישראל)',
     responseTime: 'עד יום עסקים אחד',
   },
 
@@ -34,13 +34,13 @@ export const siteConfig = {
   },
 
   /**
-   * Accessibility coordinator (רכז נגישות). Publishing these contact details is
-   * required by תקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות).
+   * Contact channel for accessibility complaints, published in the accessibility
+   * statement. A named רכז נגישות is only mandatory for businesses with 25+
+   * employees (חוק שוויון זכויות לאנשים עם מוגבלות, סעיף 19כא), so this business
+   * publishes a mailbox instead — the statement still needs somewhere to write to.
    */
   accessibility: {
-    coordinatorName: 'PLACEHOLDER: שם רכז הנגישות',
-    coordinatorPhone: 'PLACEHOLDER: טלפון רכז הנגישות',
-    coordinatorEmail: 'accessibility@clicksim.app', // TODO: confirm this mailbox is live before launch
+    contactEmail: 'accessibility@clicksim.app', // TODO: confirm this mailbox is live before launch
   },
 
   /** Shown on every legal page. Update whenever the policies change. */
@@ -90,7 +90,7 @@ export const navLinks = [
 export const legalLinks = [
   { href: '/terms', label: 'תקנון ותנאי שימוש' },
   { href: '/privacy', label: 'מדיניות פרטיות' },
-  { href: '/refund', label: 'מדיניות ביטולים והחזרים' },
+  { href: '/refund', label: 'מדיניות ביטולים, החזרים ושינויים' },
   { href: '/accessibility', label: 'הצהרת נגישות' },
   { href: '/support', label: 'יצירת קשר ושירות לקוחות' },
 ];

@@ -73,27 +73,19 @@ export default function AccessibilityPage() {
         </p>
       </LegalSection>
 
-      <LegalSection title="6. פניות בנושא נגישות (רכז נגישות)">
+      <LegalSection title="6. פניות בנושא נגישות">
         <p>
           נתקלתם בבעיית נגישות באתר או באפליקציה? נשמח שתפנו אלינו, ונטפל בפנייה בהקדם האפשרי.
         </p>
         <dl className="space-y-2">
           <div className="flex flex-wrap gap-2">
-            <dt className="font-semibold text-gray-900">שם רכז הנגישות:</dt>
-            <dd>{accessibility.coordinatorName}</dd>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            <dt className="font-semibold text-gray-900">טלפון:</dt>
-            <dd dir="ltr">{accessibility.coordinatorPhone}</dd>
-          </div>
-          <div className="flex flex-wrap gap-2">
             <dt className="font-semibold text-gray-900">דוא״ל:</dt>
             <dd>
               <a
-                href={`mailto:${accessibility.coordinatorEmail}`}
+                href={`mailto:${accessibility.contactEmail}`}
                 className="font-semibold text-blue-600 hover:underline"
               >
-                {accessibility.coordinatorEmail}
+                {accessibility.contactEmail}
               </a>
             </dd>
           </div>
