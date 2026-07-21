@@ -44,7 +44,7 @@ export const siteConfig = {
   },
 
   /** Shown on every legal page. Update whenever the policies change. */
-  legalLastUpdated: '12 ביולי 2026',
+  legalLastUpdated: '21 ביולי 2026',
 };
 
 export const mailtoUrl = `mailto:${siteConfig.support.email}`;
