@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { legalLinks, mailtoUrl, navLinks, siteConfig } from '@/config/site';
+import { legalLinks, mailtoUrl, navLinks, siteConfig, whatsappUrl } from '@/config/site';
 
 const { business, support } = siteConfig;
 
@@ -50,6 +50,16 @@ const Footer = () => (
             <li>
               <a href={mailtoUrl} className="transition-colors hover:text-blue-400">
                 {support.email}
+              </a>
+            </li>
+            <li>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block transition-colors hover:text-blue-400"
+              >
+                וואטסאפ: <span dir="ltr">{support.phone}</span>
               </a>
             </li>
             <li className="text-gray-400">{support.hours}</li>

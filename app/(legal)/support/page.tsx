@@ -1,6 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { legalLinks, mailtoUrl, mailtoWithSubject, siteConfig, supportTopics } from '@/config/site';
+import {
+  legalLinks,
+  mailtoUrl,
+  mailtoWithSubject,
+  siteConfig,
+  supportTopics,
+  whatsappUrl,
+} from '@/config/site';
 
 const { business, support } = siteConfig;
 
@@ -36,17 +43,30 @@ export default function SupportPage() {
         </p>
       </header>
 
-      <section className="mb-12 rounded-2xl border border-blue-100 bg-blue-50 p-6 text-center">
-        <h2 className="mb-2 text-lg font-bold text-gray-900">📧 פנייה בדוא״ל</h2>
-        <a
-          href={mailtoUrl}
-          className="text-xl font-bold text-blue-600 hover:underline sm:text-2xl"
-        >
-          {support.email}
-        </a>
-        <p className="mt-3 text-sm text-gray-600">
-          {support.hours} · זמן מענה: {support.responseTime}
-        </p>
+      <section className="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="rounded-2xl border border-blue-100 bg-blue-50 p-6 text-center">
+          <h2 className="mb-2 text-lg font-bold text-gray-900">📧 פנייה בדוא״ל</h2>
+          <a
+            href={mailtoUrl}
+            className="text-xl font-bold text-blue-600 hover:underline sm:text-2xl"
+          >
+            {support.email}
+          </a>
+          <p className="mt-3 text-sm text-gray-600">זמן מענה: {support.responseTime}</p>
+        </div>
+        <div className="rounded-2xl border border-blue-100 bg-blue-50 p-6 text-center">
+          <h2 className="mb-2 text-lg font-bold text-gray-900">💬 וואטסאפ</h2>
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            dir="ltr"
+            className="inline-block text-xl font-bold text-blue-600 hover:underline sm:text-2xl"
+          >
+            {support.phone}
+          </a>
+          <p className="mt-3 text-sm text-gray-600">לחצו לפתיחת שיחה · {support.hours}</p>
+        </div>
       </section>
 
       <section className="mb-12">

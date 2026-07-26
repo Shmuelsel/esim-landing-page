@@ -24,6 +24,8 @@ export const siteConfig = {
    */
   support: {
     email: 'support@clicksim.app', // TODO: confirm this mailbox is live before launch
+    phone: '052-4329287', // Display format shown on-site
+    whatsapp: '972524329287', // International digits (no +/0) for wa.me links
     hours: 'ימים א׳–ה׳, 09:00–16:00 (שעון ישראל)',
     responseTime: 'עד יום עסקים אחד',
   },
@@ -48,6 +50,8 @@ export const siteConfig = {
 };
 
 export const mailtoUrl = `mailto:${siteConfig.support.email}`;
+
+export const whatsappUrl = `https://wa.me/${siteConfig.support.whatsapp}`;
 
 /**
  * Pre-fills the subject line so inquiries land in the mailbox already categorised.
