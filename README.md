@@ -16,6 +16,23 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Environment variables
+
+The `/checkout` page hands the order to Grow (Meshulam) for payment. Grow blocks
+`createPaymentProcess` calls made from a browser, so `app/api/checkout/route.ts` makes the
+call server-side and needs these set — in `.env.local` for development, and in the hosting
+provider's environment settings for production:
+
+| Variable | Description |
+| --- | --- |
+| `GROW_USER_ID` | Business identifier, issued by Grow at onboarding. |
+| `GROW_PAGE_CODE` | Payment page identifier, issued by Grow at onboarding. |
+| `GROW_API_BASE` | `https://sandbox.meshulam.co.il` while testing, `https://secure.meshulam.co.il` in production. |
+
+Without them the checkout returns a 503 and tells the customer to contact support, so the
+rest of the site still builds and runs. Note that Grow requires `successUrl` to be HTTPS,
+so the full payment round-trip cannot be exercised against `http://localhost`.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

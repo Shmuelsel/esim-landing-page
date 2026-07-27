@@ -14,7 +14,8 @@ const PricingGrid = () => {
         <div className="mx-auto mb-12 max-w-2xl text-center">
           <h2 className="mb-4 text-3xl font-bold text-gray-900">חבילות גלישה</h2>
           <p className="text-gray-600">
-            בחרו את היעד שלכם. כל המחירים בשקלים חדשים, לתשלום חד־פעמי, והרכישה מתבצעת באפליקציה.
+            בחרו את היעד שלכם. כל המחירים בשקלים חדשים, לתשלום חד־פעמי, וקוד ההתקנה נשלח אליכם מיד
+            עם אישור התשלום.
           </p>
         </div>
 

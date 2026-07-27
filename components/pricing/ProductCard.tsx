@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import type { Package } from '@/data/packages';
 
 const CheckIcon = () => (
@@ -53,16 +54,16 @@ const ProductCard = ({ pkg }: { pkg: Package }) => (
         <span className="mr-1 text-sm text-gray-500">חד־פעמי</span>
       </p>
 
-      <a
-        href="#download"
+      <Link
+        href={`/checkout?package=${pkg.id}`}
         className={`block w-full rounded-xl px-6 py-3 text-center font-bold transition-colors ${
           pkg.isPopular
             ? 'bg-blue-600 text-white shadow-lg shadow-blue-200 hover:bg-blue-700'
             : 'border border-gray-200 bg-gray-50 text-gray-800 hover:bg-gray-100'
         }`}
       >
-        רכישה באפליקציה
-      </a>
+        רכישה מאובטחת
+      </Link>
     </div>
   </div>
 );
