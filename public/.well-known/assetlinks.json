@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.shmuel.clicksim",
+      "sha256_cert_fingerprints": [
+        "5C:42:0A:D3:86:66:E4:2E:D8:3D:F1:E9:FB:EE:D5:49:AF:B7:59:85:7E:AB:02:69:CD:D3:94:2D:6C:57:7F:7D"
+      ]
+    }
+  }
+]
