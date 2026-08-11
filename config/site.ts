@@ -46,7 +46,7 @@ export const siteConfig = {
   },
 
   /** Shown on every legal page. Update whenever the policies change. */
-  legalLastUpdated: '27 ביולי 2026',
+  legalLastUpdated: '11 באוגוסט 2026',
 };
 
 export const mailtoUrl = `mailto:${siteConfig.support.email}`;
@@ -95,6 +95,9 @@ export const legalLinks = [
   { href: '/terms', label: 'תקנון ותנאי שימוש' },
   { href: '/privacy', label: 'מדיניות פרטיות' },
   { href: '/refund', label: 'מדיניות ביטולים, החזרים ושינויים' },
+  // Google Play wants the deletion route reachable without installing the app,
+  // which means a real link in the footer — not only a URL in the console.
+  { href: '/delete-account', label: 'מחיקת חשבון' },
   { href: '/accessibility', label: 'הצהרת נגישות' },
   { href: '/support', label: 'יצירת קשר ושירות לקוחות' },
 ];
