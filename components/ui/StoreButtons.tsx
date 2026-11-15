@@ -37,12 +37,12 @@ const StoreButton = ({ href, icon, caption, store }: StoreButtonProps) => (
 /** The funnel: every primary CTA on the site lands here. */
 const StoreButtons = ({ className = '' }: { className?: string }) => (
   <div className={`flex flex-col gap-3 sm:flex-row ${className}`}>
-    {/* <StoreButton
+    <StoreButton
       href={siteConfig.stores.ios}
       icon={<AppleIcon />}
       caption="הורידו מ-"
       store="App Store"
-    /> */}
+    />
     <StoreButton
       href={siteConfig.stores.android}
       icon={<GooglePlayIcon />}
